@@ -1,5 +1,6 @@
 package com.cafeteria.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
@@ -7,14 +8,11 @@ public class Pedido {
     private List<Producto> productos;
     private String estado;
 
-    //Agregamos constructor vacio
-    public Pedido() {
-    }
 
     //Constructor con todos
-    public Pedido(List<Producto> productos, String estado) {
-        this.productos = productos;
-        this.estado = estado;
+    public Pedido() {
+        this.productos = new ArrayList<>();
+        this.estado = "Pendiente";
     }
 
     //Getter and setter
