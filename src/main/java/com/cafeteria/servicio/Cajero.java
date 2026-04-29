@@ -4,6 +4,7 @@ import com.cafeteria.modelo.Pedido;
 import com.cafeteria.modelo.Producto;
 
 import java.sql.SQLOutput;
+import java.util.List;
 
 public class Cajero {
     //Escribimos su atributo
@@ -36,17 +37,17 @@ public class Cajero {
     }
 
     public void recibirPedido(List<Producto> lista, Cocina cocina) {
-        System.out.println("[CAJERO] " + nombre + " registrando productos...");
+        System.out.println("CAJERO: " + nombre + " registrando productos...");
 
-    // Crea el pedido
-    Pedido pedidoActual = new Pedido();
+        // Crea el pedido
+        Pedido pedidoActual = new Pedido();
         for (
-    Producto p : lista) {
-        pedidoActual.agregarProducto(p);
-    }
+                Producto p : lista) {
+            pedidoActual.agregarProducto(p);
+        }
 
-    // PASO DE MENSAJE: Envía el objeto a la cocina
-        System.out.println("[CAJERO] Pasando pedido a la cocina.");
+        // PASO DE MENSAJE: Envía el objeto a la cocina
+        System.out.println("CAJERO: Pasando pedido a la cocina.");
         cocina.prepararPedido(pedidoActual);
 
         notificarCliente();
@@ -55,4 +56,5 @@ public class Cajero {
         System.out.println("Cajero para el cliente: su pedido esta en barra");
     }
 }
+
 
