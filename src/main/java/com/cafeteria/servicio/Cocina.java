@@ -10,6 +10,6 @@ public class Cocina {
         System.out.println("La cocina dice que tu pedido esta: "+pedido.getEstado());
         //cambia el estado y lo manda a imprimir
         pedido.cambiarEstado("Listo y Bello");
-        System.out.println("Cocina dice que el pedido esta termiando, :)");
+        System.out.println("Cocina dice que el pedido esta terminado, :)");
     }
 }

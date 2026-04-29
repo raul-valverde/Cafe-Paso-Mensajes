@@ -1,5 +1,6 @@
 package com.cafeteria.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
@@ -7,25 +8,24 @@ public class Pedido {
     private List<Producto> productos;
     private String estado;
 
-    //Agregamos constructor vacio
-    public Pedido() {
-    }
 
     //Constructor con todos
-    public Pedido(List<Producto> productos, String estado) {
-        this.productos = productos;
-        this.estado = estado;
+    public Pedido() {
+        this.productos = new ArrayList<>();
+        this.estado = "Pendiente";
     }
 
     //Getter and setter
-    public List<Producto> getProductos() {
+    public List<Producto> getProductos() {//Mostrará los productos porque los retornara como la lista
+
         return productos;
     }
     public void setProductos(List<Producto> productos) {
         this.productos = productos;
     }
 
-    public String getEstado() {
+    public String getEstado() {//muestra el estado (lo retorna como valor String)
+
         return estado;
     }
     public void setEstado(String estado) {
@@ -52,11 +52,4 @@ public class Pedido {
         this.estado= nuevoEstado;
     }
 
-    public String getEstado(){//muestra el estado (lo retorna como valor String)
-        return estado;
     }
-
-    public  List<Producto> getProductos(){//Mostrará los productos porque los retornara como la lista
-        return productos;
-    }
-}
