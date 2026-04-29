@@ -2,24 +2,22 @@ package com.cafeteria.servicio;
 
 import com.cafeteria.modelo.Pedido;
 import com.cafeteria.modelo.Producto;
-
-import java.sql.SQLOutput;
 import java.util.List;
 
 public class Cajero {
-    //Escribimos su atributo
+    // Escribimos su atributo
     private String nombre;
 
-    //Constructo vacio
+    // Constructor vacio
     public Cajero() {
     }
 
-    //Constructo con el nombre
+    // Constructor con el nombre
     public Cajero(String nombre) {
         this.nombre = nombre;
     }
 
-    //Getter and setter
+    // Getter and setter
     public String getNombre() {
         return nombre;
     }
@@ -27,7 +25,7 @@ public class Cajero {
         this.nombre = nombre;
     }
 
-    //Tostring
+    // Tostring
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Cajero{");
@@ -36,25 +34,32 @@ public class Cajero {
         return sb.toString();
     }
 
+    //Recibir el pedido y prepararlo
     public void recibirPedido(List<Producto> lista, Cocina cocina) {
         System.out.println("CAJERO: " + nombre + " registrando productos...");
 
         // Crea el pedido
         Pedido pedidoActual = new Pedido();
-        for (
-                Producto p : lista) {
+        for (Producto p : lista) {
             pedidoActual.agregarProducto(p);
         }
 
+        //  Llamamos al metodo de enviarACocina
+        enviarACocina(pedidoActual, cocina);
+    }
+
+    // enviarACocina
+    public void enviarACocina(Pedido pedido, Cocina cocina) {
         // PASO DE MENSAJE: Envía el objeto a la cocina
         System.out.println("CAJERO: Pasando pedido a la cocina.");
-        cocina.prepararPedido(pedidoActual);
+        cocina.prepararPedido(pedido);
 
+        // Después de que la cocina termina, notificamos
         notificarCliente();
     }
-    public void notificarCliente(){
+
+    // notificarCliente
+    public void notificarCliente() {
         System.out.println("Cajero para el cliente: su pedido esta en barra");
     }
 }
-
-
